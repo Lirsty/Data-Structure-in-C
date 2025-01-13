@@ -1,12 +1,6 @@
 #include "linkedlist.h"
 #include <stddef.h>
 #include <stdlib.h>
-
-typedef struct _node {
-    void *data;
-    struct _node *next;
-} Node;
-
 typedef struct _linkedlist {
     Node *head;
     Node *tail;
@@ -46,13 +40,13 @@ getLinkedlistSize(LinkedList *list)
 }
 
 int
-addHead(LinkedList *list, void *data)
+addHead(LinkedList *list, void *element)
 {
     Node *node = malloc(sizeof(Node));
     if (node == NULL)
         return ERROR;
 
-    node->data = data;
+    node->element = element;
     if (list->head == NULL)
         list->tail = node;
     else
@@ -64,13 +58,13 @@ addHead(LinkedList *list, void *data)
 }
 
 int
-addTail(LinkedList *list, void *data)
+addTail(LinkedList *list, void *element)
 {
     Node *node = malloc(sizeof(Node));
     if (node == NULL)
         return ERROR;
 
-    node->data = data;
+    node->element = element;
     if (list->tail == NULL)
         list->head = node;
     else
@@ -119,12 +113,12 @@ deleteNode(LinkedList *list, Node *target)
 } 
 
 Node *
-getNode(LinkedList *list, void *data, compare_fn_t compare)
+getNode(LinkedList *list, void *element, compare_fn_t compare)
 {
     Node *p = list->head;
     while (p != NULL)
     {
-        if (compare(p->data, data) == 0)
+        if (compare(p->element, element) == 0)
     return p;
         p = p->next;
     }
@@ -136,7 +130,7 @@ getNodeData(Node *node)
 {
     if (node == NULL)
         return NULL;
-    return node->data;
+    return node->element;
 }
 
 

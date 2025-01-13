@@ -21,9 +21,9 @@ getQueueSize(Queue *queue)
 }
 
 int 
-enqueue(Queue *queue, void *data)
+enqueue(Queue *queue, void *element)
 {
-   return addTail(queue, data);
+   return addTail(queue, element);
 }
 
 

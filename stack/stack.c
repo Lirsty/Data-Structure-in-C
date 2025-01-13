@@ -22,9 +22,9 @@ getStackSize(Stack *stack)
 }
 
 int
-push(Stack *stack, void *data)
+push(Stack *stack, void *element)
 {
-    return addHead(stack, data);
+    return addHead(stack, element);
 }
 
 void *

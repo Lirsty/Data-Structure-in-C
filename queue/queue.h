@@ -7,7 +7,7 @@ typedef struct _queue Queue;
 Queue *queue_new(void);
 void queue_free(Queue *queue);
 size_t getQueueSize(Queue *queue);
-int enqueue(Queue *queue, void *data);
+int enqueue(Queue *queue, void *element);
 void *dequeue(Queue *queue);
 
 
